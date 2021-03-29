@@ -43,7 +43,7 @@ const ChartComponent: React.FC<IProps> = ({ chartSeries }: IProps) => {
     return data;
   }, [chartSeries]);
   const chartData = transformSeriesToChartData();
-  console.log('chart data', chartData);
+
   return (
     <Chart
       styles={{ position: 'absolute' }}

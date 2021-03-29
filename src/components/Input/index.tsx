@@ -9,13 +9,6 @@ const Input: React.FC = () => {
       <TextInput
         id="user_input_text"
         value={textValue}
-        // style={{
-        //   width: '100%',
-        //   minHeight: '200px',
-        //   maxHeight: '330px',
-        //   resize: 'vertical',
-        // }}
-        // onChange={(e) => setUserInput(e.target.value)}
         onChange={(e) => setTextValue(e.target.value)}
       />
     </>
