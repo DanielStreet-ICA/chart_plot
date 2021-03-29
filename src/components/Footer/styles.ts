@@ -12,7 +12,7 @@ export const Container = styled.footer`
   justify-content: flex-start;
   align-items: center;
 
-  background: #353a40;
+  background-color: lightgray;
 
   button {
     width: 120px;

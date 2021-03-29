@@ -253,7 +253,11 @@ const App: React.FC = () => {
         </MainContainer>
         <GlobalStyle />
         <Footer>
-          <button onClick={startChartData} type="button">
+          <button
+            onClick={startChartData}
+            style={{ backgroundColor: 'lightblue' }}
+            type="button"
+          >
             Generate Chart{' '}
           </button>
         </Footer>

@@ -5,6 +5,7 @@ export const Container = styled.header`
   height: 60px;
   padding: 5px 10px;
   display: flex;
+  color: black;
 
-  background: #353a40;
+  background-color: lightgray;
 `;
