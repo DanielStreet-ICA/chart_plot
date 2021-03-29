@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Chart } from 'react-charts';
 
 interface MappedData {
@@ -19,8 +19,6 @@ const ChartComponent: React.FC<IProps> = ({ chartSeries }: IProps) => {
         primary: true,
         type: 'utc',
         position: 'bottom',
-        innerPadding: '5',
-        tickSizeInner: 0,
         showGrid: false,
       },
       { type: 'linear', position: 'left' },
@@ -44,13 +42,22 @@ const ChartComponent: React.FC<IProps> = ({ chartSeries }: IProps) => {
   }, [chartSeries]);
   const chartData = transformSeriesToChartData();
 
+  useEffect(() => {
+    // sadly there the chart x axe was overflowing the container
+    // this tricky code solves the problem
+    const chart: any = document.getElementById('Chart')?.childNodes[0];
+    chart.style.overflow = 'visible';
+  }, []);
   return (
-    <Chart
-      styles={{ position: 'absolute' }}
-      data={chartData}
-      axes={axes}
-      tooltip
-    />
+    <>
+      <Chart
+        styles={{ position: 'absolute' }}
+        data={chartData}
+        axes={axes}
+        tooltip
+        id="Chart"
+      />
+    </>
   );
 };
 

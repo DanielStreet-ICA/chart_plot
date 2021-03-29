@@ -219,7 +219,9 @@ const App: React.FC = () => {
           <Input />
 
           <ChartContainer>
-            <ChartComponent chartSeries={chartSeries} />
+            {chartSeries.length > 0 && (
+              <ChartComponent chartSeries={chartSeries} />
+            )}
           </ChartContainer>
         </MainContainer>
         <GlobalStyle />

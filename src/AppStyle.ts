@@ -18,7 +18,9 @@ export const InputContainer = styled.div`
 
 export const ChartContainer = styled.div`
   width: 100%;
+  position: relative;
   max-width: 100%;
   min-height: 200px;
   height: 300px;
+  margin-top: 10px;
 `;
