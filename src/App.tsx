@@ -1,17 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import * as durableJson from 'durable-json-lint';
 import ChartComponent from './components/ChartComponent';
-import logo from './logo.svg';
 import Input from './components/Input';
 import GlobalStyle from './styles/global';
 import { ChartContainer, Content, MainContainer } from './AppStyle';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-interface ChartWindow {
-  begin: number;
-  end: number;
-}
 interface MappedData {
   timeStamp: number;
   value: number;
@@ -21,24 +16,11 @@ interface SeriesData {
   data: MappedData[];
 }
 const App: React.FC = () => {
-  // const [parsedData, setParsedData] = useState<any[]>([]);
-  // const [userInput, setUserInput] = useState('');
-  const [dataLoading, setDataLoading] = useState(false);
   const [chartSeries, setChartSeries] = useState<SeriesData[]>([]);
-  const [chartLoading, setChartLoading] = useState(false);
-  const [chartWindow, setChartWindow] = useState<ChartWindow | undefined>(
-    undefined,
-  );
-  // const [fields, setFields] = useState<string[]>([]);
-  // const [group, setGroup] = useState<string[]>([]);
 
-  // const updateUserInput = useCallback((value: string) => {
-  //   setUserInput(value);
-  // }, []);
   const parseUserInput = useCallback((userInput: string) => {
     // first split the lines of user input
     const splittedUserInput = userInput.split('\n');
-    setChartLoading(true);
     const parsedInput: React.SetStateAction<any[]> = [];
     try {
       // eslint-disable-next-line consistent-return
@@ -64,13 +46,6 @@ const App: React.FC = () => {
     }
     return parsedInput;
   }, []);
-
-  const getDateFromTimeStamp = (timeStamp: number) => {
-    console.log('timestring', timeStamp);
-    const date = new Date(timeStamp);
-    console.log('parseddate', date);
-    return date;
-  };
 
   const handleStartEvent = useCallback((event) => {
     const selectedFields: string[] = event.select;
@@ -235,10 +210,6 @@ const App: React.FC = () => {
     handleStartEvent,
     parseUserInput,
   ]);
-
-  useEffect(() => {
-    console.log('chart', chartSeries);
-  }, [chartSeries]);
 
   return (
     <>

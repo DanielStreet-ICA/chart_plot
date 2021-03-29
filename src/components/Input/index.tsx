@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import TextInput from './styles';
 
 const Input: React.FC = () => {
-  // const [userInput, setUserInput] = useState('');
   const [textValue, setTextValue] = useState('');
   return (
     <>
